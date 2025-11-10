@@ -8,16 +8,28 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
         {/* Logo */}
-        <div className="flex items-center space-x-3">
-          <img
-            src="/Portfolio 2.png"   // <-- replace with your logo path
-            alt="Logo"
-            className="h-10 w-10 object-contain rounded-full"
-          />
-          <h1 className="text-2xl font-bold tracking-wide">
-            Mohamed Ramiz Mohamed Rifdhi
-          </h1>
-        </div>
+<div className="flex items-center space-x-3">
+
+  {/* Small screens (logo only) */}
+  <img
+    src="/Portfolio.png"
+    alt="Logo"
+    className="h-10 w-auto object-contain block md:hidden"
+  />
+
+  {/* Medium screens (short name) */}
+  <h1 className="text-2xl font-bold tracking-wide hidden md:block lg:hidden whitespace-nowrap">
+    Mohamed Rifdhi
+  </h1>
+
+  {/* Large screens (full name) */}
+  <h1 className="text-2xl font-bold tracking-wide hidden lg:block whitespace-nowrap">
+    Mohamed Ramiz Mohamed Rifdhi
+  </h1>
+
+</div>
+
+
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-lg">
