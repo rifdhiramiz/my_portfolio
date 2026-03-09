@@ -1,4 +1,4 @@
-import { FaLaptopCode, FaServer, FaDatabase, FaPaintBrush } from "react-icons/fa";
+import { FaLaptopCode, FaServer, FaDatabase, FaPaintBrush, FaCode } from "react-icons/fa";
 import { SiFigma, SiCanva, SiAdobephotoshop, SiAdobeillustrator } from "react-icons/si";
 
 export default function Skills() {
@@ -10,32 +10,55 @@ export default function Skills() {
       ) : (
         <IconComponent className="text-lg" style={{ color }} />
       )}
-      {/* Changed text color */}
       <h3 className="text-base font-semibold text-gray-400">{name}</h3>
     </div>
   );
 
   const sections = [
     {
-      title: "Frontend Development",
+      title: "Programming Languages",
+      icon: FaCode,
+      color: "text-gold",
+      key: "programming",
+      skills: [
+        ["fab fa-php", "#FFFFFF", "PHP"],
+        ["fab fa-java", "#FFFFFF", "Java"],
+        ["fab fa-microsoft", "#FFFFFF", "C#"],
+      ],
+    },
+    {
+      title: "Web Development",
+      icon: FaLaptopCode,
+      color: "text-gold",
+      key: "webdev",
+      skills: [
+        ["fab fa-html5", "#FFFFFF", "HTML"],
+        ["fab fa-css3-alt", "#FFFFFF", "CSS"],
+        ["fab fa-bootstrap", "#FFFFFF", "Bootstrap"],
+        ["fab fa-css3-alt", "#FFFFFF", "Tailwind CSS"],
+        ["fab fa-js-square", "#FFFFFF", "JavaScript"],
+        ["fab fa-js-square", "#FFFFFF", "TypeScript"],
+      ],
+    },
+    {
+      title: "Frontend Frameworks",
       icon: FaLaptopCode,
       color: "text-gold",
       key: "frontend",
       skills: [
-        ["fab fa-html5", "#FFFFFF", "HTML"],
-        ["fab fa-css3-alt", "#FFFFFF", "CSS"],
-        ["fab fa-js-square", "#FFFFFF", "JavaScript"],
         ["fab fa-react", "#FFFFFF", "React"],
+        ["fab fa-angular", "#FFFFFF", "Angular"],
       ],
     },
     {
-      title: "Backend Development",
+      title: "Backend Frameworks",
       icon: FaServer,
       color: "text-gold",
       key: "backend",
       skills: [
-        ["fab fa-node", "#FFFFFF", "Node.js"],
         ["fab fa-laravel", "#FFFFFF", "Laravel"],
+        ["fab fa-node", "#FFFFFF", "Node.js"],
+        ["fab fa-node-js", "#FFFFFF", "Express.js"],
       ],
     },
     {
@@ -45,6 +68,7 @@ export default function Skills() {
       key: "database",
       skills: [
         ["fas fa-database", "#FFFFFF", "MySQL"],
+        ["fas fa-database", "#FFFFFF", "MS SQL"],
         ["fas fa-leaf", "#FFFFFF", "MongoDB"],
       ],
     },
@@ -78,17 +102,14 @@ export default function Skills() {
       </p>
 
       <div className="max-w-6xl mx-auto space-y-6">
-        {/* First Row: Frontend + Backend */}
+        {/* First Row: Programming + Web Development */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {sections.slice(0, 2).map((section) => (
             <div key={section.key} className="bg-[#1f2b3d] rounded-2xl shadow-lg p-4">
-              {/* Title */}
               <div className={`flex items-center text-xl font-semibold mb-4 ${section.color}`}>
                 <section.icon className="mr-2" />
                 <span>{section.title}</span>
               </div>
-
-              {/* Skills grid - tighter spacing */}
               <div className="flex flex-wrap gap-3">
                 {section.skills.map((s, idx) => skillCard(...s))}
               </div>
@@ -96,17 +117,29 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Second Row: Database + Design */}
+        {/* Second Row: Frontend + Backend Frameworks */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {sections.slice(2, 4).map((section) => (
             <div key={section.key} className="bg-[#1f2b3d] rounded-2xl shadow-lg p-4">
-              {/* Title */}
               <div className={`flex items-center text-xl font-semibold mb-4 ${section.color}`}>
                 <section.icon className="mr-2" />
                 <span>{section.title}</span>
               </div>
+              <div className="flex flex-wrap gap-3">
+                {section.skills.map((s, idx) => skillCard(...s))}
+              </div>
+            </div>
+          ))}
+        </div>
 
-              {/* Skills grid - tighter spacing */}
+        {/* Third Row: Database + Design Tools */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {sections.slice(4, 6).map((section) => (
+            <div key={section.key} className="bg-[#1f2b3d] rounded-2xl shadow-lg p-4">
+              <div className={`flex items-center text-xl font-semibold mb-4 ${section.color}`}>
+                <section.icon className="mr-2" />
+                <span>{section.title}</span>
+              </div>
               <div className="flex flex-wrap gap-3">
                 {section.skills.map((s, idx) => skillCard(...s))}
               </div>
